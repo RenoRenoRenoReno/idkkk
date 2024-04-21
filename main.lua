@@ -1,14 +1,15 @@
 local ItemDrops = workspace.ItemDrops
 local Mobs = workspace.Mobs
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GoHamza/AppleLibrary/main/main.lua"))()
+local lib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/fluxlib.txt")()
+_G.closeBind = Enum.KeyCode.Tab
+local win = lib:Window("Incline", "Suck my dick!", Color3.fromRGB(21, 19, 19), _G.closeBind)
 local tooldrops
 local mobesp
-local window = library:init("Incline", true, Enum.KeyCode.RightShift, true)
-local sectionA = window:Section("Main")
+local tab = win:Tab("Title", "http://www.roblox.com/asset/?id=6023426915")
 
-sectionA:Switch("Switch me!", false, function(a)
-	tooldrops = a
+tab:Toggle("ToolDrops ESP", "Allows you see ItemDrops through walls", false, function(t)
+	tooldrops = t
 	while tooldrops == true do
 		task.wait(1)
 		for _,item in pairs(ItemDrops:GetChildren()) do
@@ -25,42 +26,46 @@ sectionA:Switch("Switch me!", false, function(a)
 		end
 	end
 end)
-sectionA:Switch("Mob ESP", false, function(a)
-	mobesp = a
-	while mobesp == true do
-		task.wait(1)
-		for _,mob in pairs(Mobs:GetChildren()) do
-			if (mob:FindFirstChild(mob.Name.."-highlight")) then
-			else
-				if (mob:FindFirstChild("Handle")) then
-					if (mob.Handle:FindFirstChild(mob.Name.."-highlight")) then
-					else
-						local highlight = Instance.new("Highlight", mob["Handle"])
-						highlight.Name = mob.Name.."-highlight"
-						highlight.Enabled = true
-						highlight.FillColor = Color3.fromRGB(255, 55, 58)
-						highlight.OutlineTransparency = 0
-						highlight.FillTransparency = 0
-					end
-				elseif (mob:FindFirstChild("Cube")) then
-					if (mob.Cube:FindFirstChild(mob.Name.."-highlight")) then
-					else
-						local highlight = Instance.new("Highlight", mob["Cube"])
-						highlight.Name = mob.Name.."-highlight"
-						highlight.Enabled = true
-						highlight.FillColor = Color3.fromRGB(255, 55, 58)
-						highlight.OutlineTransparency = 0
-						highlight.FillTransparency = 0
-					end
+
+tab:Toggle("Mobs ESP", "Allows you see Mobs through walls", false, function(t)
+	tooldrops = t
+	while tooldrops == true do
+		mobesp = a
+		while mobesp == true do
+			task.wait(1)
+			for _,mob in pairs(Mobs:GetChildren()) do
+				if (mob:FindFirstChild(mob.Name.."-highlight")) then
 				else
-					if (mob.Handle:FindFirstChild(mob.Name.."-highlight")) then
+					if (mob:FindFirstChild("Handle")) then
+						if (mob.Handle:FindFirstChild(mob.Name.."-highlight")) then
+						else
+							local highlight = Instance.new("Highlight", mob["Handle"])
+							highlight.Name = mob.Name.."-highlight"
+							highlight.Enabled = true
+							highlight.FillColor = Color3.fromRGB(255, 55, 58)
+							highlight.OutlineTransparency = 0
+							highlight.FillTransparency = 0
+						end
+					elseif (mob:FindFirstChild("Cube")) then
+						if (mob.Cube:FindFirstChild(mob.Name.."-highlight")) then
+						else
+							local highlight = Instance.new("Highlight", mob["Cube"])
+							highlight.Name = mob.Name.."-highlight"
+							highlight.Enabled = true
+							highlight.FillColor = Color3.fromRGB(255, 55, 58)
+							highlight.OutlineTransparency = 0
+							highlight.FillTransparency = 0
+						end
 					else
-						local highlight = Instance.new("Highlight", mob)
-						highlight.Name = mob.Name.."-highlight"
-						highlight.Enabled = true
-						highlight.FillColor = Color3.fromRGB(255, 55, 58)
-						highlight.OutlineTransparency = 0
-						highlight.FillTransparency = 0
+						if (mob.Handle:FindFirstChild(mob.Name.."-highlight")) then
+						else
+							local highlight = Instance.new("Highlight", mob)
+							highlight.Name = mob.Name.."-highlight"
+							highlight.Enabled = true
+							highlight.FillColor = Color3.fromRGB(255, 55, 58)
+							highlight.OutlineTransparency = 0
+							highlight.FillTransparency = 0
+						end
 					end
 				end
 			end
