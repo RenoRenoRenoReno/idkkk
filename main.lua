@@ -1,14 +1,14 @@
 local ItemDrops = workspace.ItemDrops
 local Mobs = workspace.Mobs
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoid/scripts/master/uilibrary.lua"))()
+local library = loadstring(game:HttpGet("https://github.com/GoHamza/AppleLibrary/blob/main/main.lua?raw=true"))()
 local tooldrops
 local mobesp
-local window = library:window("Incline")
-local folder = window:folder("Folder")
+local window = library:init("Incline", true, Enum.KeyCode.RightShift, true)
+local sectionA = window:Section("Main")
 
-folder:toggle({name = "ToolDrop ESP", flag = "tooldropesp",callback = function(tog)
-	tooldrops = tog
+sectionA:Switch("Switch me!", false, function(a)
+	tooldrops = a
 	while tooldrops == true do
 		task.wait(1)
 		for _,item in pairs(ItemDrops:GetChildren()) do
@@ -24,9 +24,9 @@ folder:toggle({name = "ToolDrop ESP", flag = "tooldropesp",callback = function(t
 			print(item.Name)
 		end
 	end
-end})
-folder:toggle({name = "Mob ESP", flag="mpobesp", callback = function(tog)
-	mobesp = tog
+end)
+sectionA:Switch("Mob ESP", false, function(a)
+	mobesp = a
 	while mobesp == true do
 		task.wait(1)
 		for _,mob in pairs(Mobs:GetChildren()) do
@@ -66,4 +66,4 @@ folder:toggle({name = "Mob ESP", flag="mpobesp", callback = function(tog)
 			end
 		end
 	end
-end})
+end)
