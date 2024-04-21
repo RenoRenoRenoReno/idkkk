@@ -10,7 +10,7 @@ local Window = Bracket:Window({Name = "Incline",Enabled = true,Color = Color3.ne
 		local ToolDropESP = Tab:Toggle({Name = "ToolDrops ESP",Flag = "Toggle",Side = "Left",Value = false,Callback = function(Toggle_Bool) 
 			tooldrops = Toggle_Bool
 			while tooldrops == true do
-				task.wait(0.05)
+				task.wait(1)
 				for _,item in pairs(ItemDrops:GetChildren()) do
 					if (item:FindFirstChild(item.Name.."-highlight")) then
 						item[item.Name.."-highlight"]:Destroy()
@@ -28,6 +28,7 @@ local Window = Bracket:Window({Name = "Incline",Enabled = true,Color = Color3.ne
 		local mobsESP = Tab:Toggle({Name = "Mobs ESP", Flag = "ESP",Side = "Left", Value = false, Callback = function(Toggle) 
 			mobesp = Toggle
 			while mobesp == true do
+				task.wait(1)
 				for _,mob in pairs(Mobs:GetChildren()) do
 					if (mob:FindFirstChild(mob.Name.."-highlight")) then
 					else
