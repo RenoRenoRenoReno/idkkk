@@ -1,7 +1,7 @@
 local ItemDrops = workspace.ItemDrops
 local Mobs = workspace.Mobs
 
-local library = loadstring(game:HttpGet("https://github.com/GoHamza/AppleLibrary/blob/main/main.lua?raw=true"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GoHamza/AppleLibrary/main/main.lua"))()
 local tooldrops
 local mobesp
 local window = library:init("Incline", true, Enum.KeyCode.RightShift, true)
