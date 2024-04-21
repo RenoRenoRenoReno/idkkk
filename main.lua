@@ -6,7 +6,7 @@ _G.closeBind = Enum.KeyCode.Tab
 local win = lib:Window("Incline", "Suck my dick!", Color3.fromRGB(21, 19, 19), _G.closeBind)
 local tooldrops
 local mobesp
-local tab = win:Tab("Title", "http://www.roblox.com/asset/?id=6023426915")
+local tab = win:Tab("Main UWU~", "http://www.roblox.com/asset/?id=6023426915")
 
 tab:Toggle("ToolDrops ESP", "Allows you see ItemDrops through walls", false, function(t)
 	tooldrops = t
