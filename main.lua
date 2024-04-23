@@ -28,8 +28,6 @@ tab:Toggle("ToolDrops ESP", "Allows you see ItemDrops through walls", false, fun
 end)
 
 tab:Toggle("Mobs ESP", "Allows you see Mobs through walls", false, function(t)
-	tooldrops = t
-	while tooldrops == true do
 		mobesp = a
 		while mobesp == true do
 			task.wait(1)
@@ -69,6 +67,5 @@ tab:Toggle("Mobs ESP", "Allows you see Mobs through walls", false, function(t)
 					end
 				end
 			end
-		end
 	end
 end)
